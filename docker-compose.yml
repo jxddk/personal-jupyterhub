@@ -1,0 +1,18 @@
+volumes:
+  personal_juptyerhub_home:
+  personal_juptyerhub_etc:
+
+services:
+  personal_jupyterhub:
+    container_name: personal_jupyterhub
+    image: joedeandev/personal_jupyterhub:latest
+    restart: always
+    ports:
+      - 8000:8000
+    environment:
+      - GITHUB_CALLBACK_URL=${GITHUB_CALLBACK_URL:-GITHUB_CALLBACK_URL}
+      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID:-GITHUB_CLIENT_ID}
+      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET:-GITHUB_CLIENT_SECRET}
+    volumes:
+      - personal_juptyerhub_home:/home
+      - personal_juptyerhub_etc:/etc
