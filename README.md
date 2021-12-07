@@ -2,6 +2,8 @@
 
 A Docker image providing a [JupyterHub](https://jupyter.org/hub) / [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) configuration for one-person use and small team collaboration.
 
+[Pull it from Docker Hub](https://hub.docker.com/repository/docker/joedeandev/personal-jupyterhub): `docker pull joedeandev/personal-jupyterhub:latest`
+
 ![](./logo.png)
 
 ## Purpose
@@ -12,7 +14,7 @@ This image can be a private data science notebook, a personal scripting server, 
 
 ## Performance and Security
 
-The image weighs just over 2Gb, due to the dependencies needed for Jupyter, the kernels, and the document renderers. When running, the server uses around 100Mb of memory, and very little CPU. Individual kernels are run in the same container as the server, and thus notebook performance can be limited by the resources available to the container. With Jupyter's LocalProcessSpawner, there is no way to throttle single user servers, so don't give a login to any crypto-mining friends. Permissions are managed by Linux, and thus the container is fairly secure, but it's probably not the best place to store important SSH keys.
+The image weighs just under 3Gb, due to the dependencies needed for Jupyter, the kernels, and the document renderers. When running, the server uses around 100Mb of memory, and very little CPU. Individual kernels are run in the same container as the server, and thus notebook performance can be limited by the resources available to the container. With Jupyter's LocalProcessSpawner, there is no way to throttle single user servers, so don't give a login to any crypto-mining friends. Permissions are managed by Linux, and thus the container is fairly secure, but it's probably not the best place to store important SSH keys.
 
 ## Quickstart
 
@@ -71,7 +73,8 @@ For collaborative projects, create a locally-authenticated user specifically for
 * Create a user with a descriptive username: `sudo python admin.py setuser statisticsproject2021 superrsecurrepassword`
 * *(Optional)* Grant a normal user write access: `sudo python admin.py allowwrite joedeandev statisticsproject2021`
 * Share login details with collaborators, or even better, create tokens.
-* Log in as the new user, and collaborate.
+
+Log in as the new user, and collaborate.
 
 ## Features
 
